@@ -1,0 +1,36 @@
+{
+  "_doc": "The manifest Hardtech-CAD reads (libs:cad-core ModelManifest). One entry per model: id, name, library (boats | architecture), format (lower-case extension family), path (repo-relative, LFS), source, licence, size (bytes), sha256 (of the file at path). `view` is an optional derived, triangulated GLB of the same model for phones (path, size, sha256, tool); the original stays the source of truth. `conversion` says why a closed format has no view yet.",
+  "schema": 1,
+  "models": [
+    {
+      "id": "one-lilo",
+      "name": "One Lilo, 36 m sailing yacht",
+      "library": "boats",
+      "format": "iges",
+      "path": "boats/iges/one-lilo-36m-sailing-yacht.igs",
+      "source": "Owner's own file (Google Drive, archive 36-meter-sailing-yacht-1.snapshot.9.zip, member OneLilo.igs)",
+      "licence": "Owner's own; all rights reserved",
+      "size": 59423596,
+      "sha256": "efe271f619ff5c4b191f6133c56ae42a898d8e161ac837a45d6027e37d6879ac",
+      "view": {
+        "path": "boats/glb/one-lilo-36m-sailing-yacht.view.glb",
+        "format": "glb",
+        "size": 20564776,
+        "sha256": "ddd9a58f69bad856ef2d18fb951b4f770e3df07e9fbc063e60472c4191559115",
+        "tool": "tools/brep2glb.mjs with occt-import-js 0.0.23 (LGPL-2.1), linear deflection 0.004 of the bounding box, merged by colour"
+      }
+    },
+    {
+      "id": "campidoglio",
+      "name": "Campidoglio, Musei Capitolini, Palazzo Senatorio, Roma",
+      "library": "architecture",
+      "format": "skp",
+      "path": "architecture/skp/campidoglio-palazzo-senatorio-roma.skp",
+      "source": "Owner's own file (SketchUp 2021 model)",
+      "licence": "Owner's own; all rights reserved",
+      "size": 4000076,
+      "sha256": "efa7c9a27aeab1cec0e16679652096dccfa4547d8ed658e1da425ec5e4401256",
+      "conversion": "No open-source SKP reader exists and SketchUp does not run on the Linux CI. Pending: export to GLB (and IFC) with SketchUp's own exporter (SketchUp Free or Pro), then add it here as `view`."
+    }
+  ]
+}
