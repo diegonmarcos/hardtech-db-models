@@ -15,9 +15,9 @@
       "view": {
         "path": "boats/glb/one-lilo-36m-sailing-yacht.view.glb",
         "format": "glb",
-        "size": 20564776,
-        "sha256": "ddd9a58f69bad856ef2d18fb951b4f770e3df07e9fbc063e60472c4191559115",
-        "tool": "tools/brep2glb.mjs with occt-import-js 0.0.23 (LGPL-2.1), linear deflection 0.004 of the bounding box, merged by colour"
+        "size": 7747004,
+        "sha256": "2452ad7742f68eeeb4798d4af6faa80a3babb550dfcd2030bd4c17c196bbfe8a",
+        "tool": "tools/brep2glb.mjs with occt-import-js 0.0.23 (LGPL-2.1), linear deflection 0.08 of the bounding box (254k triangles), merged by colour"
       }
     },
     {
