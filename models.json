@@ -75,9 +75,9 @@
       "view": {
         "path": "mechanics/glb/dji-s900-hex-rotor-drone.view.glb",
         "format": "glb",
-        "size": 6350940,
-        "sha256": "bf3ccccfe0f6e270a2568f948b0d4722f9fed38b3697b179c4ec9d667ef38d60",
-        "tool": "tools/brep2glb.mjs with occt-import-js 0.0.23 (LGPL-2.1), linear deflection 0.02 of the bounding box (166k triangles), Y-up kept, merged by colour"
+        "size": 6512592,
+        "sha256": "cc2289c30ab60791213a48a6480a79f670b272d4cd5c82278fc6532192481379",
+        "tool": "tools/brep2glb-parts.mjs (packer tools/tess.js = libs:cad-brep tess.js) with occt-import-js 0.0.23 (LGPL-2.1), linear deflection 0.02 of the bounding box, Y-up kept, ONE NODE PER SOLID (237 parts, named from the STEP product, own colour)"
       }
     }
   ]
