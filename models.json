@@ -31,6 +31,54 @@
       "size": 4000076,
       "sha256": "efa7c9a27aeab1cec0e16679652096dccfa4547d8ed658e1da425ec5e4401256",
       "conversion": "No open-source SKP reader exists and SketchUp does not run on the Linux CI. Pending: export to GLB (and IFC) with SketchUp's own exporter (SketchUp Free or Pro), then add it here as `view`."
+    },
+    {
+      "id": "house-boat",
+      "name": "House Boat, two-deck pontoon houseboat",
+      "library": "boats",
+      "format": "obj",
+      "path": "boats/obj/house-boat.obj",
+      "source": "Owner's own file (archive boat-house-3.zip, member House Boat.obj, written by assimp 5.2; no .mtl shipped, colours from the material names in boats/obj/house-boat.colours.json)",
+      "licence": "Owner's own; all rights reserved",
+      "size": 1506644,
+      "sha256": "ad1d531b637a9ecfb25532441a786966620798c707952285954b61041412e381",
+      "photos": [
+        "boats/photos/house-boat-1.jpg",
+        "boats/photos/house-boat-2.jpg",
+        "boats/photos/house-boat-3.jpg",
+        "boats/photos/house-boat-4.jpg",
+        "boats/photos/house-boat-5.jpg",
+        "boats/photos/house-boat-6.jpg",
+        "boats/photos/house-boat-7.jpg"
+      ],
+      "view": {
+        "path": "boats/glb/house-boat.view.glb",
+        "format": "glb",
+        "size": 1706760,
+        "sha256": "aaca12482970b43b3bc15f15e65aaede23b7648fb873b9fbf3a876f5f158cd23",
+        "tool": "tools/obj2glb.mjs (pure Node), scale 0.001 (millimetres to metres), one primitive per material"
+      }
+    },
+    {
+      "id": "dji-s900",
+      "name": "DJI S900, hex-rotor camera drone",
+      "library": "mechanics",
+      "format": "step",
+      "path": "mechanics/step/dji-s900-hex-rotor-drone.step",
+      "source": "Owner's own file (archive dji-s900-hex-rotor-drone.zip, member DJI S900 STEP File.STEP, STEP AP214 written by SolidWorks 2015)",
+      "licence": "Owner's own; all rights reserved",
+      "size": 22288885,
+      "sha256": "c426eddb0fa298c92ddb567afa8bc6c8e5c5e5ddcb39837efda9f0520f7c209f",
+      "photos": [
+        "mechanics/photos/dji-s900-hex-rotor-drone.jpg"
+      ],
+      "view": {
+        "path": "mechanics/glb/dji-s900-hex-rotor-drone.view.glb",
+        "format": "glb",
+        "size": 6350940,
+        "sha256": "bf3ccccfe0f6e270a2568f948b0d4722f9fed38b3697b179c4ec9d667ef38d60",
+        "tool": "tools/brep2glb.mjs with occt-import-js 0.0.23 (LGPL-2.1), linear deflection 0.02 of the bounding box (166k triangles), Y-up kept, merged by colour"
+      }
     }
   ]
 }

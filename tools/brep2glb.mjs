@@ -1,9 +1,10 @@
 // brep2glb: STEP/IGES -> GLB view file, offline, with occt-import-js (LGPL-2.1, Open CASCADE inside).
-// Usage: node brep2glb.mjs <occt-import-js.js> <in.igs|in.stp> <out.glb> [linear-deflection]
+// Usage: node brep2glb.mjs <occt-import-js.js> <in.igs|in.stp> <out.glb> [linear-deflection] [up-axis z|y]
+// up-axis: z (default; Rhino/IGES exports) rotates -90 deg about X to glTF Y-up; y (SolidWorks STEP) keeps the axes.
 // The original stays the source of truth; the GLB is a derived, triangulated view for phones.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
-const [, , occtJs, input, output, defl] = process.argv;
+const [, , occtJs, input, output, defl, up] = process.argv;
 const occt = await createRequire(import.meta.url)(occtJs)();
 const buf = new Uint8Array(readFileSync(input));
 const params = { linearUnit: 'meter', linearDeflectionType: 'bounding_box_ratio', linearDeflection: Number(defl || 0.001), angularDeflection: 0.5 };
@@ -45,7 +46,7 @@ for (const g of groups.values()) {
   nodes.push({ mesh: meshes.length - 1 });
 }
 // IGES/STEP are Z-up; glTF is Y-up: one root rotation of -90 deg about X.
-nodes.push({ name: 'root', children: nodes.map((_, i) => i), rotation: [-Math.SQRT1_2, 0, 0, Math.SQRT1_2] });
+nodes.push({ name: 'root', children: nodes.map((_, i) => i), ...(up === 'y' ? {} : { rotation: [-Math.SQRT1_2, 0, 0, Math.SQRT1_2] }) });
 const gltf = { asset: { version: '2.0', generator: 'brep2glb (occt-import-js)' }, scene: 0, scenes: [{ nodes: [nodes.length - 1] }], nodes, meshes, materials, accessors, bufferViews: views, buffers: [{ byteLength: off }] };
 let json = Buffer.from(JSON.stringify(gltf)); const jp = (4 - (json.length % 4)) % 4; json = Buffer.concat([json, Buffer.alloc(jp, 0x20)]);
 const body = Buffer.concat(bin); const total = 12 + 8 + json.length + 8 + body.length;
